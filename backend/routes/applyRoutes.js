@@ -1,11 +1,10 @@
 // routes/applyRoutes.js
 const express = require("express");
 const multer = require("multer");
-const path = require("path");
 const { handleApplication } = require("../controller/applyController.js");
 
 const router = express.Router();
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ storage: multer.memoryStorage() });
 
 router.post("/", upload.single("resume"), handleApplication);
 
