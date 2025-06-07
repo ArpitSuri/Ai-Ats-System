@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const ApplicationForm = () => {
     const [jobs, setJobs] = useState([]);
     const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const ApplicationForm = () => {
         resume: null,
     });
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     // Fetch job list for dropdown
     useEffect(() => {
@@ -55,10 +57,9 @@ const ApplicationForm = () => {
                     headers: { "Content-Type": "multipart/form-data" },
                 }
             );
-            setMessage(res.data.message || "Application submitted successfully");
+            toast.success(res.data.message);
 
             // Mock success response
-            setMessage("Application submitted successfully!");
 
             setFormData({
                 jobId: "",
@@ -71,7 +72,7 @@ const ApplicationForm = () => {
             });
         } catch (err) {
             console.error("Error submitting application:", err);
-            setMessage("Submission failed. Please try again.");
+            toast.error( "Failed to submit application");
         }
     };
 
@@ -224,6 +225,13 @@ const ApplicationForm = () => {
                         </button>
                     </form>
                 </div>
+                <button
+                    onClick={() => navigate("/adminDashboard")}
+
+                    className="w-1/2 mx-auto bg-white text-black py-4 px-6 rounded-lg font-semibold text-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+                >
+                    Admin
+                </button>
             </div>
         </div>
     );
