@@ -18,7 +18,7 @@ const Login = () => {
         setIsLoading(true);
 
         try {
-            const res = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/api/auth/login`, {
+            const res = await axios.post(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/auth/login`, {
                 email,
                 password,
             });
