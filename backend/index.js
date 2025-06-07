@@ -6,18 +6,18 @@ const authRoutes = require("./routes/authRoutes.js");
 const applyRoutes = require("./routes/applyRoutes.js");
 const adminRoutes = require("./routes/adminRoutes.js");
 const jobRoutes = require("./routes/jobRoutes.js");
+const dbConnection = require("./config/dbConnection.js");
 require("dotenv").config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => console.log("MongoDB connected"))
-.catch(err => console.error("MongoDB connection error:", err));
+dbConnection();
 
+app.get("/", (req, res) => {
+    res.send("Welcome to the Job filtering API");
+}); 
 app.use("/api/auth", authRoutes);
 app.use("/api/apply", applyRoutes);
 app.use("/api/admin", adminRoutes);
