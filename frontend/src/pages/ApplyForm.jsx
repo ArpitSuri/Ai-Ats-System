@@ -81,7 +81,7 @@ const ApplicationForm = () => {
             <div className="w-full max-w-2xl">
                 {/* Header */}
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 cursor-pointer" onClick={() => navigate("/adminDashboard")}>
                         Join Our Team
                     </h1>
                     <p className="text-gray-400 text-lg">
@@ -219,19 +219,19 @@ const ApplicationForm = () => {
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="w-full bg-white text-black py-4 px-6 rounded-lg font-semibold text-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+                            className="w-full bg-white text-black py-4 px-6 rounded-lg font-semibold text-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white cursor-pointer focus:ring-opacity-50 transition-all transform hover:scale-[1.02] active:scale-[0.98]"
                         >
                             Submit Application
                         </button>
                     </form>
                 </div>
-                <button
+                {/* <button
                     onClick={() => navigate("/adminDashboard")}
 
                     className="w-1/2 mx-auto bg-white text-black py-4 px-6 rounded-lg font-semibold text-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 transition-all transform hover:scale-[1.02] active:scale-[0.98]"
                 >
                     Admin
-                </button>
+                </button> */}
             </div>
         </div>
     );

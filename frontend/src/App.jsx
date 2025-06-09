@@ -9,7 +9,7 @@ import ProtectedRoute from "./helpers/ProtectedRoute";
 import Login from "./pages/login";
 // import ShortlistedApplicants from "./pages/ApplicantList";
 import AdminDashboard from "./pages/ApplicantList";
-
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -22,6 +22,19 @@ function App() {
         <Route path="jobs" element={<JobSection />} />
         </Route>
       </Routes>
+
+
+    <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark" />
     </Router>
   );
 }

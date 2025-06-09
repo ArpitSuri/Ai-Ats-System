@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const JobSection = () => {
     const [jobs, setJobs] = useState([]);
@@ -66,6 +67,7 @@ const JobSection = () => {
             });
 
             console.log("Job created:", jobPayload);
+            toast.success("Job created successfully!");
         } catch (err) {
             console.error("Error creating job:", err);
         } finally {

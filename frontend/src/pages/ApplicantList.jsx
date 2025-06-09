@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const AdminDashboard = () => {
     const [applicants, setApplicants] = useState([]);
@@ -49,21 +50,21 @@ const AdminDashboard = () => {
     const handleMail = async (name, email) => {
         try {
             await axios.post(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/admin/send-mail`, { name, email });
-            alert("Mail sent to " + name);
+            toast.success(`Mail sent to ${name}`);
         } catch (error) {
             console.error("Failed to send mail:", error);
-            alert("Failed to send mail to " + name);
+            toast.error(`Failed to send mail to ${name}`);
         }
     };
 
     const deleteApplicant = async (id) => {
         try {
             const res = await axios.delete(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/admin/${id}`);
-            alert(res.data.message);
+            toast.success("Applicant deleted successfully");
             window.location.reload();
         } catch (err) {
             console.error(err);
-            alert("Failed to delete applicant");
+            toast.error("Failed to delete applicant");
         }
     };
 

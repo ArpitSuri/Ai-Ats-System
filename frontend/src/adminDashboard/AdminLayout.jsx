@@ -141,7 +141,7 @@ const AdminLayout = () => {
             >
                 {/* Logo/Header Section */}
                 <div className="mb-8">
-                    <Link to="/applicants" onClick={handleLinkClick} className="block group">
+                    <Link to="/adminDashboard" onClick={handleLinkClick} className="block group">
                         <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent group-hover:from-purple-300 group-hover:to-pink-300 transition-all duration-300">
                             Admin Portal
                         </h2>
@@ -199,14 +199,14 @@ const AdminLayout = () => {
                 {/* Logout Button */}
                 <div className="pt-6 mt-auto">
                     <button
-                        className="group w-full bg-gradient-to-r from-red-600/80 to-red-700/80 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center border border-red-500/30 hover:border-red-400/50 backdrop-blur-sm transform hover:scale-[1.02]"
+                        className="group w-full bg-gradient-to-r from-red-600/80 to-red-700/80 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center border border-red-500/30 hover:border-red-400/50 backdrop-blur-sm transform hover:scale-[1.02] cursor-pointer"
                         onClick={logout}
                     >
                         <LogOut size={18} className="mr-2 group-hover:rotate-12 transition-transform duration-200" />
                         Logout
                     </button>
                 </div>
-            </aside>
+            </aside> 
 
             {/* Main Content */}
             <main className="flex-1 bg-black p-4 md:p-8 mt-16 md:mt-0 min-h-screen">
